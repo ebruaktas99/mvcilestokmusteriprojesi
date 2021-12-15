@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <title>STOK</title>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover:not(.active) {
+                    background-color: #111;
+                }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="/Kategori/Index/">KATEGORİLER</a></li>
+            <li><a href="/Urun/Index/">ÜRÜNLER</a></li>
+            <li><a href="/Musteri/Index/">MÜŞTERİLER</a></li>
+            <li><a href="/Satis/Index/">SATIŞLAR</a></li>
+            <li><a href="/Default/Index/">YARDIM</a></li>
+
+        </ul>
+    </div>
+
+    <div class="container">
+
+        @RenderBody() <!-- SABİT ALAN DIŞINDA KALANLARINN GÖSTERİLECEĞİ YER-->
+
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+
+</html>

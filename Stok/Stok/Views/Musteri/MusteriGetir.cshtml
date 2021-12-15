@@ -1,0 +1,38 @@
+﻿@model Stok.Models.Entity.MUSTERILER
+
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Güncelle butonuna tıkladığımızda güncelleme sayfası açılır. Daha sonra bu sayfada post(tıklama vs) işlemi olduğunda güncelleme olur-->
+@using (Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+{
+<div style="background-color:peachpuff; height:100%;">
+    <div style="margin-left:200px">
+        <div style="margin-top:20px">
+
+            @Html.LabelFor(m => m.MUSTERIID)
+            <br />
+            @Html.TextBoxFor(m => m.MUSTERIID, new { @class = "form-control" })
+        </div>
+
+
+        <div style="margin-top:20px">
+
+            @Html.LabelFor(m => m.MUSTERIAD)
+            <br />
+            @Html.TextBoxFor(m => m.MUSTERIAD, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:20px">
+
+            @Html.LabelFor(m => m.MUSTERISOYAD)
+            <br />
+            @Html.TextBoxFor(m => m.MUSTERISOYAD, new { @class = "form-control" })
+        </div>
+        <br />
+
+        <button style="background-color:yellow"> Müşteri Güncelle</button>
+    </div>
+</div>
+}

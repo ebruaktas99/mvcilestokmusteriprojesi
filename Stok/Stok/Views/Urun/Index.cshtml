@@ -1,0 +1,90 @@
+﻿@using Stok.Models.Entity
+@model List<URUNLER>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<html>
+
+<head>
+ <!-- <style>
+
+        table, th, tr, td {
+            border: 1px solid black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        div {
+            height: 55px;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>-->
+</head>
+<body>
+
+
+    <table id="tbl1" class="table table-bordered" style="margin-top:20px">
+
+        <thead>
+            <tr>
+                <th>ÜRÜN ID </th>
+                <th>ÜRÜN AD </th>
+                <th>ÜRÜN MARKASI </th>
+                <th>ÜRÜN KATEGORİ </th>
+                <th>ÜRÜN FİYAT </th>
+                <th>ÜRÜN STOK </th>
+                <th>SİL </th>
+                <th>GÜNCELLE </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var urn in Model)
+            {
+                <tr>
+
+
+                    <th>@urn.URUNID</th>
+                    <td>@urn.URUNAD</td>
+                    <td>@urn.MARKA</td>
+                    <td>@urn.KATEGORILER.KATEGORIAD</td> <!--Birleştirme işlemi.KategoriIDye göre kategoriadı yazılmış olacak.-->
+                    <td>@urn.URUNFIYAT</td>
+                    <td>@urn.STOK</td>
+                    <td><a href="/Urun/Sil/@urn.URUNID" class="btn btn-danger">SİL</a></td>
+                    <td><a href="/Urun/UrunGetir/@urn.URUNID" class="btn btn-success">GÜNCELLE</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <a href="/Urun/YeniUrun/" class="btn btn-warning">Yeni Ürün Ekle</a>
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+    <script>
+        $('#tbl1').dataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"
+            }});
+    </script>
+</body>
+       
+</html>

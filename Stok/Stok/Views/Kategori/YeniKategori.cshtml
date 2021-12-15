@@ -1,0 +1,33 @@
+﻿@model Stok.Models.Entity.KATEGORILER
+
+
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+    @*<div style="margin-top:15px;">
+        <label>Kategori Adı</label>
+        <input type="text" style="width:90%" name="KATEGORIAD" />
+
+    </div>*@
+
+    <div style="margin-top:20px">
+
+        @Html.LabelFor(m => m.KATEGORIAD)
+        <br />
+        @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.KATEGORIAD, "", new { @style = "color:red" })
+        <!--Kategori ekleme alanı boşsa kategori adını giriniz mesajı çıkar.
+            -->
+    </div>
+
+
+    <div style="margin-top:15px">
+
+        <button style="background-color:blue"> Kategori Ekle</button>
+
+    </div>
+</form>

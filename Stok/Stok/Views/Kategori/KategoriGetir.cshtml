@@ -1,0 +1,34 @@
+﻿
+@model Stok.Models.Entity.KATEGORILER
+
+
+
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!--Güncelle butonuna tıkladığında, çalışacak sayfa nerede, ne işlemi olduğunda-->
+@using (Html.BeginForm("Guncelle", "Kategori", "FormMethod.Post")) { 
+<div style="background-color:peachpuff; height:100%;">
+    <div style="margin-left:200px">
+        <div style="margin-top:20px">
+
+            @Html.LabelFor(m => m.KATEGORIID)
+            <br />
+            @Html.TextBoxFor(m => m.KATEGORIID, new { @class = "form-control" })
+        </div>
+
+
+        <div style="margin-top:20px">
+
+            @Html.LabelFor(m => m.KATEGORIAD)
+            <br />
+            @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+        </div>
+        <br />
+
+        <button style="background-color:yellow"> Kategori Güncelle</button>
+    </div>
+</div>
+}

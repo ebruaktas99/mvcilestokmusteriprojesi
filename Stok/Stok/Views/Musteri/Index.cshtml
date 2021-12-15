@@ -1,0 +1,89 @@
+﻿@using Stok.Models.Entity
+@model List<MUSTERILER> 
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<html>
+
+<head>
+
+    <style>
+
+        table, th, tr, td {
+            border: 1px solid black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        div {
+            height: 35px;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <div style="margin-top:30px">
+        @using (Html.BeginForm("Index", "Musteri", FormMethod.Get))
+        {
+            //birincisi actionresult ismi. Bu gette çalışacak
+
+            <p>
+                <b> Aranacak Müşteri Adı :</b> @Html.TextBox("p")
+                <input type="submit" value="Ara" />
+
+            </p>
+
+        }
+
+    </div>
+    <table>
+
+        <tr>
+
+            <th>MÜŞTERİ ID </th>
+            <th>MÜŞTERİ ADI </th>
+            <th>MÜŞTERİ SOYADI </th>
+            <th>SİL </th>
+            <th>GÜNCELLE </th>
+            <th>ALERT </th>
+        </tr>
+
+        <tbody>
+
+            @foreach (var mus in Model)
+            {
+                <tr>
+                    <th>@mus.MUSTERIID</th>
+                    <td>@mus.MUSTERIAD</td>
+                    <td>@mus.MUSTERISOYAD</td>
+                    <td><a href="/Musteri/Sil/@mus.MUSTERIID" style="background-color:red">SİL</a></td>
+                    <td><a href="/Musteri/MusteriGetir/@mus.MUSTERIID" style="background-color:orange">GÜNCELLE</a></td>
+                    <td>@Html.ActionLink("Sil Butonu", "Sil", new { id = mus.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Silmek İstiyor Musunuz?')" }) </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+    <br />
+
+    <a href="/Musteri/YeniMusteri/" style="width:20%; background-color:yellow;">Yeni Müşteri Ekle</a>
+</body>
+</html>
